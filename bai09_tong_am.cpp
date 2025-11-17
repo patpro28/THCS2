@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-int tongam(float a[], int n) {
-    int sum = 0;
+float tong_am(float a[], int n) {
+    float sum = 0;
     for (int i = 0; i < n; i++) {
         if (a[i] < 0) {
             sum += a[i];
@@ -18,9 +18,9 @@ void doctep(float a[], int &n) {
     fclose(f);
 }
 
-void ghitep(int sum) {
+void ghitep(float sum) {
     FILE *f = fopen("OUTPUT.OUT", "w");
-    fprintf(f, "%d", sum);
+    fprintf(f, "%.2f", sum);
     fclose(f);
 }
 
@@ -28,7 +28,7 @@ int main() {
     float a[100];
     int n;
     doctep(a, n);
-    int sum = tongam(a, n);
+    float sum = tong_am(a, n);
     ghitep(sum);
     return 0;
 }

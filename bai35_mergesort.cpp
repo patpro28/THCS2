@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void mergesort(float a[], int n) {
     if (n <= 1) return;
@@ -6,7 +7,7 @@ void mergesort(float a[], int n) {
     mergesort(a, mid);
     mergesort(a + mid, n - mid);
 
-    float* temp = new float[n];
+    float* temp = (float*)malloc(n * sizeof(float));
     int i = 0, j = mid, k = 0;
 
     while (i < mid && j < n) {
@@ -22,7 +23,7 @@ void mergesort(float a[], int n) {
     for (i = 0; i < n; ++i) {
         a[i] = temp[i];
     }
-    delete[] temp;
+    free(temp);
 }
 
 void doctep(float a[], int &n) {
