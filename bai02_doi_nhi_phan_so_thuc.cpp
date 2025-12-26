@@ -8,18 +8,26 @@ char *doinhiphan(float n) {
     static char s[101];
     int intPart = (int)n;
     float fracPart = n - intPart;
-    for (int i = 31; i >= 0; i--) {
-        s[i] = (intPart & 1) + '0';
-        intPart >>= 1;
+    int i = 0;
+    while (intPart > 0) {
+        s[i++] = (intPart % 2) + '0';
+        intPart /= 2;
     }
-    s[32] = '.';
-    for (int i = 33; i < 100; i++) {
+    int j = 0;
+    while (j * 2 < i) {
+        char temp = s[j];
+        s[j] = s[i - j - 1];
+        s[i - j - 1] = temp;
+        j++;
+    }
+    s[i++] = '.';
+    while (i < 100) {
         fracPart *= 2;
         if (fracPart >= 1) {
-            s[i] = '1';
+            s[i++] = '1';
             fracPart -= 1;
         } else {
-            s[i] = '0';
+            s[i++] = '0';
         }
     }
     s[100] = '\0';
