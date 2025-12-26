@@ -5,31 +5,33 @@
 // char *doi_chu_thuong(char s[]) {
 //     int len = 0;
 //     while (s[len] != '\0') len++;
-//     char *result = (char*)malloc(len + 1);
+//     char *kq = (char*)malloc(len + 1);
 //     int i = 0;
-//     for (; s[i] != '\0'; ++i) {
+//     while(s[i] != '\0') {
 //         if (s[i] >= 'A' && s[i] <= 'Z') {
-//             result[i] = s[i] + ('a' - 'A');
+//             kq[i] = s[i] + ('a' - 'A');
 //         } else {
-//             result[i] = s[i];
+//             kq[i] = s[i];
 //         }
+//         i++;
 //     }
-//     result[i] = '\0';
-//     return result;
+//     kq[i] = '\0';
+//     return kq;
 // }
 
 char *doi_chu_thuong(char s[]) {
-    static char result[100];
+    static char kq[100];
     int i = 0;
-    for (; s[i] != '\0'; ++i) {
+    while(s[i] != '\0') {
         if (s[i] >= 'A' && s[i] <= 'Z') {
-            result[i] = s[i] + ('a' - 'A');
+            kq[i] = s[i] + ('a' - 'A');
         } else {
-            result[i] = s[i];
+            kq[i] = s[i];
         }
+        i++;
     }
-    result[i] = '\0';
-    return result;
+    kq[i] = '\0';
+    return kq;
 }
 
 void doctep(char s[]) {
