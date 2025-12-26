@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 // #include <stdlib.h>
-// // Cần delete bộ nhớ sau khi sử dụng
+// // Cần free bộ nhớ sau khi sử dụng
 // char *doi_chu_thuong(char s[]) {
 //     int len = 0;
 //     while (s[len] != '\0') len++;
