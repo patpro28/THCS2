@@ -2,10 +2,18 @@
 
 char *doinhiphan(long n) {
     static char s[65];
-    s[64] = '\0';
-    for (int i = 63; i >= 0; i--) {
-        s[i] = (n & 1) ? '1' : '0';
-        n >>= 1;
+    int i = 0, j = 0;
+    while (n > 0) {
+        s[i++] = (n % 2) + '0';
+        n /= 2;
+    }
+    s[i] = '\0';
+
+    while (j * 2 < i) {
+        char temp = s[j];
+        s[j] = s[i - j - 1];
+        s[i - j - 1] = temp;
+        j++;
     }
     return s;
 }
